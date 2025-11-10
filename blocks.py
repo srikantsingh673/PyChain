@@ -5,9 +5,14 @@ class PyChain:
     
     def __init__(self):
         self.chain = [] # This list will hold all blocks
+        self.nodes = set() # Set to store peer node addresses
 
         # Create the first block with proof=1 and previous_hash='0'
         self.create_block(proof=1, previous_hash='0')
+
+    def add_node(self, address):
+        """Add a new node's address (as a string URL) to the set of peers."""
+        self.nodes.add(address)
         
         
     def create_block(self, proof, previous_hash):
